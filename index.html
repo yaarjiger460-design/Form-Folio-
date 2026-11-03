@@ -6,7 +6,7 @@
   <title>Form & Folio Studio | Modern Customizable Stationery & Lifestyle Essentials</title>
   <meta name="description" content="Thoughtfully designed customizable stationery, retail tabletop signs, and personalized essentials for modern entrepreneurs and boutiques. Printed & fulfilled by Zazzle.">
   
-  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,6 +40,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -348,6 +352,46 @@
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
+      scroll-margin-top: 110px;
+    }
+
+    .product-card:target,
+    .product-card.active-highlight {
+      border: 2px solid var(--accent-terracotta) !important;
+      box-shadow: 0 0 0 6px rgba(184, 93, 56, 0.22), var(--shadow-lg) !important;
+      transform: translateY(-8px) scale(1.02);
+      animation: highlight-pulse-glow 2.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes highlight-pulse-glow {
+      0% {
+        box-shadow: 0 0 0 4px rgba(184, 93, 56, 0.18), 0 16px 36px rgba(42, 37, 33, 0.12);
+      }
+      100% {
+        box-shadow: 0 0 0 8px rgba(184, 93, 56, 0.38), 0 24px 48px rgba(184, 93, 56, 0.25);
+      }
+    }
+
+    .selected-from-pin-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-terracotta);
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(184, 93, 56, 0.3);
+      animation: badge-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes badge-pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     .product-card:hover {
@@ -671,7 +715,6 @@
       text-decoration: underline;
     }
 
-    /* Mobile Responsive */
     @media (max-width: 900px) {
       .hero-content {
         padding: 30px;
@@ -708,7 +751,7 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="#" class="brand-group">
-        <img src="form_and_folio_profile_picture.jpg" alt="Form & Folio Studio Logo" class="brand-logo" onerror="this.style.display='none'">
+        <img src="images/form_and_folio_profile_picture.jpg" alt="Form & Folio Studio Logo" class="brand-logo" onerror="if(!this.src.endsWith('/form_and_folio_profile_picture.jpg')){this.src='form_and_folio_profile_picture.jpg';}">
         <div class="brand-text">
           <h1 id="brand-title">Form & Folio Studio</h1>
           <p id="brand-tagline">Customizable Stationery & Essentials</p>
@@ -731,7 +774,7 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-banner-card">
-      <img src="form_and_folio_store_banner.jpg" alt="Form & Folio Banner" class="hero-banner-img">
+      <img src="images/form_and_folio_store_banner.jpg" alt="Form & Folio Banner" class="hero-banner-img" onerror="if(!this.src.endsWith('/form_and_folio_store_banner.jpg')){this.src='form_and_folio_store_banner.jpg';}">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-tag">Official Studio Showcase</div>
@@ -806,7 +849,7 @@
   <!-- About Section -->
   <section id="about" class="section-container" style="border-top: 1px solid var(--border-subtle);">
     <div style="display: flex; align-items: center; gap: 48px; flex-wrap: wrap;">
-      <img src="form_and_folio_profile_picture.jpg" alt="About Form & Folio" style="width: 140px; height: 140px; border-radius: var(--radius-lg); object-fit: cover; box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle);">
+      <img src="images/form_and_folio_profile_picture.jpg" alt="About Form & Folio" style="width: 140px; height: 140px; border-radius: var(--radius-lg); object-fit: cover; box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle);" onerror="if(!this.src.endsWith('/form_and_folio_profile_picture.jpg')){this.src='form_and_folio_profile_picture.jpg';}">
       <div style="flex: 1; min-width: 280px;">
         <div class="section-subtitle">Behind the Studio</div>
         <h2 class="section-title" style="margin-bottom: 14px;">Intentional Design for Everyday Moments</h2>
@@ -868,15 +911,25 @@
       document.getElementById('footer-store-link').href = STORE_CONFIG.zazzleStoreUrl;
     }
 
+    // Helper function to handle image fallbacks gracefully
+    function getFallbackAttr(path) {
+      if (path.startsWith('images/')) {
+        const rootPath = path.replace('images/', '');
+        return `onerror="this.onerror=null; this.src='${rootPath}';"`;
+      } else {
+        return `onerror="this.onerror=null; this.src='images/${path}';"`;
+      }
+    }
+
     // Render Product Cards
     const productContainer = document.getElementById('product-list');
     if (typeof PRODUCTS !== 'undefined' && productContainer) {
       productContainer.innerHTML = PRODUCTS.map(item => `
-        <article class="product-card">
+        <article id="${item.id}" class="product-card">
           <div class="product-media-wrap">
             <span class="product-badge">${item.badge}</span>
-            <img src="${item.image}" alt="${item.title}" class="product-img main-img" loading="lazy">
-            <img src="${item.hoverImage || item.image}" alt="${item.title} Detail" class="product-img hover-img" loading="lazy">
+            <img src="${item.image}" alt="${item.title}" class="product-img main-img" loading="lazy" ${getFallbackAttr(item.image)}>
+            <img src="${item.hoverImage || item.image}" alt="${item.title} Detail" class="product-img hover-img" loading="lazy" ${getFallbackAttr(item.hoverImage || item.image)}>
           </div>
           <div class="product-content">
             <div class="product-category-row">
@@ -914,6 +967,35 @@
         </div>
       `).join('');
     }
+
+    // Auto-scroll and highlight target product when linked from Pinterest (#asset-0001, #asset-0002)
+    function highlightSelectedProduct() {
+      const hash = window.location.hash;
+      if (!hash) return;
+      
+      const targetCard = document.querySelector(hash);
+      if (targetCard) {
+        setTimeout(() => {
+          // Smoothly scroll and center the product on screen
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetCard.classList.add('active-highlight');
+
+          // Add a special "Selected from Pinterest" badge inside the card if not already added
+          const content = targetCard.querySelector('.product-content');
+          if (content && !targetCard.querySelector('.selected-from-pin-badge')) {
+            const badge = document.createElement('div');
+            badge.className = 'selected-from-pin-badge';
+            badge.innerHTML = '✦ Selected from Pinterest';
+            content.insertBefore(badge, content.firstChild);
+          }
+        }, 150);
+      }
+    }
+
+    // Trigger on page load and on hash change
+    window.addEventListener('DOMContentLoaded', highlightSelectedProduct);
+    setTimeout(highlightSelectedProduct, 300);
+    window.addEventListener('hashchange', highlightSelectedProduct);
   </script>
 </body>
 </html>
