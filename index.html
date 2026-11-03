@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form & Folio Studio | Modern Customizable Stationery & Lifestyle Essentials</title>
+  <meta name="description" content="Thoughtfully designed customizable stationery, retail tabletop signs, and personalized essentials for modern entrepreneurs and boutiques. Printed & fulfilled by Zazzle.">
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-cream: #FAF8F5;
+      --bg-card: #FFFFFF;
+      --bg-surface: #F4EFEB;
+      --text-dark: #2A2521;
+      --text-muted: #736B63;
+      --text-light: #9B938B;
+      --accent-terracotta: #B85D38;
+      --accent-terracotta-hover: #9E4926;
+      --accent-sage: #6B7B67;
+      --accent-sage-light: #EDF1EB;
+      --border-subtle: #ECE5DE;
+      --border-focus: #D4C7BA;
+      --shadow-sm: 0 4px 12px rgba(42, 37, 33, 0.03);
+      --shadow-md: 0 12px 30px rgba(42, 37, 33, 0.06);
+      --shadow-lg: 0 20px 40px rgba(42, 37, 33, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Top Announcement Bar */
+    .announcement-bar {
+      background-color: var(--text-dark);
+      color: #F8F5F1;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    .announcement-bar span {
+      opacity: 0.85;
+    }
+
+    .announcement-bar a {
+      color: #E2A78F;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-dark);
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-terracotta);
+    }
+
+    .btn-zazzle-nav {
+      background-color: var(--accent-terracotta);
+      color: #FFF;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(184, 93, 56, 0.2);
+    }
+
+    .btn-zazzle-nav:hover {
+      background-color: var(--accent-terracotta-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(184, 93, 56, 0.3);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      padding: 60px 24px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-banner-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-subtle);
+      height: 420px;
+      display: flex;
+      align-items: center;
+      background: #EBE5DC;
+    }
+
+    .hero-banner-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(250, 248, 245, 0.96) 0%, rgba(250, 248, 245, 0.85) 45%, rgba(250, 248, 245, 0.2) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 580px;
+      padding: 40px 60px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--accent-sage-light);
+      color: var(--accent-sage);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 46px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-terracotta);
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-terracotta);
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-full);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(184, 93, 56, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-terracotta-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(184, 93, 56, 0.35);
+    }
+
+    .btn-secondary {
+      background-color: #FFF;
+      color: var(--text-dark);
+      border: 1px solid var(--border-subtle);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-surface);
+      border-color: var(--border-focus);
+    }
+
+    /* Section Styling */
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 48px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-terracotta);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 36px;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-focus);
+    }
+
+    .product-media-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 85%;
+      overflow: hidden;
+      background: var(--bg-surface);
+    }
+
+    .product-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-img.hover-img {
+      opacity: 0;
+    }
+
+    .product-card:hover .product-img.hover-img {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+
+    .product-card:hover .product-img.main-img {
+      transform: scale(1.04);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      color: var(--accent-terracotta);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .product-content {
+      padding: 26px 26px 30px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-category-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .product-category {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .product-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .product-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .spec-pill {
+      font-size: 11px;
+      background-color: var(--bg-surface);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid #ECE4DC;
+    }
+
+    .btn-customize-zazzle {
+      width: 100%;
+      background-color: var(--text-dark);
+      color: #FFF;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 13px 20px;
+      border-radius: var(--radius-full);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(42, 37, 33, 0.1);
+    }
+
+    .btn-customize-zazzle:hover {
+      background-color: var(--accent-terracotta);
+      box-shadow: 0 6px 18px rgba(184, 93, 56, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* Collections Section */
+    .collections-section {
+      background-color: #F5EFEB;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 80px 24px;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .collection-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .collection-card:hover {
+      border-color: var(--accent-terracotta);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .collection-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-sage);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .collection-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .collection-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .collection-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-terracotta);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Features / Why Choose Us */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .feature-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--accent-terracotta);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #211E1B;
+      color: #EDE8E2;
+      padding: 70px 24px 30px;
+      border-top: 1px solid #332F2A;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand h2 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 500;
+      color: #FFF;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: #A39B91;
+      max-width: 440px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-links h3 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #E2A78F;
+      margin-bottom: 18px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: #BBB3A9;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #FFF;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid #332F2A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #7D766D;
+    }
+
+    .footer-bottom a {
+      color: #A39B91;
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .hero-content {
+        padding: 30px;
+        max-width: 100%;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>✨ Curated Designs • Live Real-Time Customization • Worldwide Fulfillment by Zazzle</span>
+    <a id="announcement-store-link" href="#" target="_blank" rel="noopener">Explore Full Zazzle Store &rarr;</a>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-group">
+        <img src="form_and_folio_profile_picture.jpg" alt="Form & Folio Studio Logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <h1 id="brand-title">Form & Folio Studio</h1>
+          <p id="brand-tagline">Customizable Stationery & Essentials</p>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#products" class="nav-link">Featured Products</a>
+        <a href="#collections" class="nav-link">Collections</a>
+        <a href="#how-it-works" class="nav-link">How Customization Works</a>
+        <a href="#about" class="nav-link">About the Studio</a>
+        <a id="btn-nav-zazzle" href="#" target="_blank" rel="noopener" class="btn-zazzle-nav">
+          <span>Shop on Zazzle</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-banner-card">
+      <img src="form_and_folio_store_banner.jpg" alt="Form & Folio Banner" class="hero-banner-img">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-tag">Official Studio Showcase</div>
+        <h2 class="hero-title">Elevate Your Brand with <em>Artfully Crafted</em> Templates</h2>
+        <p class="hero-subtitle">Boutique client appointment cards, market vendor payment displays, and curated stationery designed to be effortlessly customized for your business.</p>
+        <div class="hero-cta-group">
+          <a href="#products" class="btn-primary">
+            <span>Explore Curated Pieces</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+          <a id="hero-store-btn" href="#" target="_blank" rel="noopener" class="btn-secondary">View Entire Storefront</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section id="products" class="section-container">
+    <div class="section-header">
+      <div class="section-subtitle">Curated Releases</div>
+      <h2 class="section-title">Personalizable Product Showcase</h2>
+      <p class="section-desc">Each piece is formatted as a live Zazzle template. Click any item to personalize your names, QR codes, and text before ordering.</p>
+    </div>
+
+    <div id="product-list" class="product-grid">
+      <!-- Products dynamically rendered by JavaScript from products.js -->
+    </div>
+  </section>
+
+  <!-- Collections Section -->
+  <section id="collections" class="collections-section">
+    <div class="section-container" style="padding-top:0; padding-bottom:0;">
+      <div class="section-header">
+        <div class="section-subtitle">Curated Groupings</div>
+        <h2 class="section-title">Coordinated Studio Collections</h2>
+        <p class="section-desc">Explore matching suites designed to keep your brand aesthetic cohesive across cards, stickers, and displays.</p>
+      </div>
+
+      <div id="collection-list" class="collection-grid">
+        <!-- Collections dynamically rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section-container">
+    <div class="section-header">
+      <div class="section-subtitle">Seamless Ordering</div>
+      <h2 class="section-title">How Live Customization Works</h2>
+      <p class="section-desc">You get the design quality of an independent studio backed by the trusted printing and fast worldwide shipping of Zazzle.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3 class="feature-title">Choose Your Design</h3>
+        <p class="feature-desc">Select any product from our studio showcase to open its dedicated customization workspace on Zazzle.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3 class="feature-title">Personalize in Real-Time</h3>
+        <p class="feature-desc">Type your business name, insert your contact details, or upload your payment QR codes with live visual previews.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3 class="feature-title">Delivered to Your Door</h3>
+        <p class="feature-desc">Zazzle prints your custom items on ultra-premium archival paper, cardstock, or acrylic with a 100% satisfaction guarantee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-container" style="border-top: 1px solid var(--border-subtle);">
+    <div style="display: flex; align-items: center; gap: 48px; flex-wrap: wrap;">
+      <img src="form_and_folio_profile_picture.jpg" alt="About Form & Folio" style="width: 140px; height: 140px; border-radius: var(--radius-lg); object-fit: cover; box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle);">
+      <div style="flex: 1; min-width: 280px;">
+        <div class="section-subtitle">Behind the Studio</div>
+        <h2 class="section-title" style="margin-bottom: 14px;">Intentional Design for Everyday Moments</h2>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
+          Form & Folio Studio was created to bridge high-end, gallery-quality design with everyday utility. Whether you are a solo esthetician handing a client their booking card, a craft vendor setting up a pop-up booth, or celebrating a personal milestone, our pieces are crafted with warm palettes, timeless typography, and effortless customization.
+        </p>
+        <p style="font-size: 13px; font-weight: 600; color: var(--accent-terracotta);">
+          Independently Created • Available Exclusively on Zazzle
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>Form & Folio Studio</h2>
+        <p>Thoughtfully designed customizable stationery, retail tabletop signs, and lifestyle essentials for creative entrepreneurs and modern businesses.</p>
+        <p style="font-size: 12px; opacity: 0.7;">
+          Printed, manufactured, and shipped worldwide with pride by Zazzle.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Studio Navigation</h3>
+        <ul>
+          <li><a href="#products">Featured Products</a></li>
+          <li><a href="#collections">Studio Collections</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#about">About Form & Folio</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Official Storefront</h3>
+        <ul>
+          <li><a id="footer-store-link" href="#" target="_blank" rel="noopener">Visit Our Zazzle Shop &rarr;</a></li>
+          <li><a href="https://www.zazzle.com" target="_blank" rel="noopener">Zazzle Marketplace</a></li>
+          <li><a href="https://www.zazzle.com/trust" target="_blank" rel="noopener">Zazzle 100% Satisfaction Guarantee</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 Form & Folio Studio. All rights reserved.</div>
+      <div>Official Independent Zazzle Associate & Creator Storefront.</div>
+    </div>
+  </footer>
+
+  <!-- Load Product Data & Render Engine -->
+  <script src="products.js"></script>
+  <script>
+    // Initialize configuration links
+    if (typeof STORE_CONFIG !== 'undefined') {
+      document.getElementById('announcement-store-link').href = STORE_CONFIG.zazzleStoreUrl;
+      document.getElementById('btn-nav-zazzle').href = STORE_CONFIG.zazzleStoreUrl;
+      document.getElementById('hero-store-btn').href = STORE_CONFIG.zazzleStoreUrl;
+      document.getElementById('footer-store-link').href = STORE_CONFIG.zazzleStoreUrl;
+    }
+
+    // Render Product Cards
+    const productContainer = document.getElementById('product-list');
+    if (typeof PRODUCTS !== 'undefined' && productContainer) {
+      productContainer.innerHTML = PRODUCTS.map(item => `
+        <article class="product-card">
+          <div class="product-media-wrap">
+            <span class="product-badge">${item.badge}</span>
+            <img src="${item.image}" alt="${item.title}" class="product-img main-img" loading="lazy">
+            <img src="${item.hoverImage || item.image}" alt="${item.title} Detail" class="product-img hover-img" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-category-row">
+              <span class="product-category">${item.category}</span>
+              <span class="product-price">${item.price}</span>
+            </div>
+            <h3 class="product-title">${item.title}</h3>
+            <p class="product-desc">${item.description}</p>
+            
+            <div class="product-specs">
+              ${(item.specs || []).map(spec => `<span class="spec-pill">${spec}</span>`).join('')}
+            </div>
+
+            <a href="${item.zazzleUrl}" target="_blank" rel="noopener" class="btn-customize-zazzle">
+              <span>Personalize & Order on Zazzle</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Render Collections
+    const collectionContainer = document.getElementById('collection-list');
+    if (typeof COLLECTIONS !== 'undefined' && collectionContainer) {
+      collectionContainer.innerHTML = COLLECTIONS.map(col => `
+        <div class="collection-card">
+          <div class="collection-tag">${col.tag}</div>
+          <h3 class="collection-title">${col.title}</h3>
+          <p class="collection-desc">${col.description}</p>
+          <a href="${typeof STORE_CONFIG !== 'undefined' ? STORE_CONFIG.zazzleStoreUrl : '#'}" target="_blank" rel="noopener" class="collection-link">
+            <span>Explore on Zazzle</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
