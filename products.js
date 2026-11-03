@@ -32,7 +32,7 @@ const PRODUCTS = [
     id: "asset-0002",
     title: "Terracotta Sage Botanical Dual QR Code Pop-Up Sign",
     category: "Market & Retail Displays",
-    badge: "New Release",
+    badge: "Bestseller",
     price: "From $7.43",
     description: "Freestanding pedestal display sign for craft fairs, farmer's markets, and pop-up boutiques. Features dual placeholder frames for your Scan to Pay and Social Media QR codes.",
     image: "popup_vendor_qr_pedestal_sign_6x8.jpg",
@@ -40,6 +40,19 @@ const PRODUCTS = [
     zazzleUrl: "https://www.zazzle.com/terracotta_sage_botanical_dual_qr_code_pop_up_pedestal_sign-256108631629691910?rf=238535639741893678",
     collection: "Artisan Market & Pop-Up Vendor Suite",
     specs: ["Durable Acrylic Pedestal", "Available in 4x6, 6x8, 8x10", "Dual QR Code Placeholders", "Built-in Freestanding Base"]
+  },
+  {
+    id: "asset-0003",
+    title: "Cottage Bakery Sourdough Starter Botanical Wheat Sticker",
+    category: "Pantry & Bakery Labels",
+    badge: "New Release",
+    price: "From $0.28 / sticker",
+    description: "Luxury circular jar label featuring lush watercolor terracotta washes, wild wheat stalks, sage olive foliage, and delicate gold guidelines. Designed for cottage bakeries, homesteads, and sourdough makers to track feeding schedules, cultures, and born-on dates.",
+    image: "sourdough_jar_mockup_square_2000.jpg",
+    hoverImage: "sourdough_jar_in_use_2000.jpg",
+    zazzleUrl: "https://www.zazzle.com/cottage_bakery_sourdough_starter_botanical_wheat_classic_round_sticker-256900307461479884?rf=238535639741893678",
+    collection: "Artisan Kitchen & Pantry Labels",
+    specs: ["Classic Round 1.5\", 2\", or 3\"", "Waterproof & Scratch-Resistant Vinyl", "Sold in Multi-Pack Sheets of 20", "Gold Botanical Foliage Wreath"]
   }
 ];
 
@@ -60,7 +73,7 @@ const COLLECTIONS = [
     title: "Artisan Kitchen & Pantry Labels",
     description: "Customizable jar stickers, sourdough feeding logs, and packaging seals for cottage bakeries and home canning.",
     tag: "Cottage Food",
-    count: "Coming Soon"
+    count: "Active Collection"
   },
   {
     title: "Trade & Vocational Celebrations",
