@@ -1,8 +1,7 @@
 /**
  * FORM & FOLIO STUDIO - PRODUCT DATABASE & CONFIGURATION
  * 
- * To add a new product in the future, simply add a new object to the PRODUCTS array below!
- * Your Zazzle Referral ID is automatically attached so you earn your 15% Associate bonus.
+ * Direct root paths matching your GitHub repository structure.
  */
 
 const STORE_CONFIG = {
